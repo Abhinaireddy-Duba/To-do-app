@@ -7,10 +7,13 @@
 	<title></title>
 	<style type="text/css">
 
+
 		body{
-			background-image:url( "https://res.cloudinary.com/practicaldev/image/fetch/s--fUWfiNBY--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/036s7j5b73up7455rdth.png");
-			background-size: cover;
+			background-image: url("http://static1.squarespace.com/static/55257272e4b0fff9d741a7aa/552ff502e4b0dbfc9e07ed75/5efe32b050bf501e8bfe0bce/1597849207358/?format=1500w");
+			background-size:cover ;
 			background-repeat: no-repeat;
+
+
 			
 	
 		}
@@ -24,40 +27,56 @@
 			justify-content: center;
 			color: black;
 			padding: 1%;
-			font-size: 2rem;
+			font-size: 1rem;
+			border-radius: 5px;
 		}
-		button{
+		button {
 			padding: 1%;
 			background-color: orange;
 			color: black;
-			font-size: 2em;
+			font-size: 1em;
+			margin-left: 7%;
+			border-radius: 25px;
 
+
+		}
+		button:hover{
+			background-color: blue;
+			color: white;
 		}
 		.fa-solid{
 			background-color:red;
 			font-size: 1em;
 		}
 		.newValue{
-			color:whitesmoke;
-			font-size: 2em;
+			color:black;
+			font-size: 1em;
+		}
+		.border{
+	
+			margin-left:42%;
+			margin-top: 25%;
 		}
 
 	</style>
 
 </head>
 <body>
+	<div class="border">
 	<input id="app" type="text" placeholder="Enter a value">
 	<ul>
 		
 	</ul>
-	<button onclick="display()">submit</button>
+	<button  onclick="display()">submit</button>
+	</div>
+	
 	<script type="text/javascript">
 		function display() {
 			let newTodo=document.getElementById("app").value,todolist=[]
 			//console.log(app)
 			todolist.push(newTodo)
 			console.log(todolist);
-			0
+			
 			if (newTodo==="") {
 				alert("enter a Todo value")
 			}
@@ -70,14 +89,25 @@
 			let ul=document.querySelector("ul")
 			console.log(ul)
 			let li=document.createElement("li");
+			const d=new Date();
+			const h=d.getHours();
+			const m=d.getMinutes();
+			const a=d.getDate();
+			const b=d.getMonth()+1;
+			const c=d.getFullYear();
 			li.innerHTML=`
-			<span class="newValue">${newValue}</span>
+			<span class="newValue">${newValue} </span>
+			<i class="fa-solid fa-rectangle-xmark"></i><br/>
+			<span class="newValue">${h}:${m}</span>
+			<i class="fa-solid fa-rectangle-xmark"></i><br/>
+			<span class="newValue">${a}-${b}-${c}</span>
 			<i class="fa-solid fa-rectangle-xmark"></i>
 
 			`
 			li.classList.add("listtype")
 			ul.appendChild(li)
 		}
+
 	</script>
 
 </body>
